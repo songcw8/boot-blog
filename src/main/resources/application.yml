@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: boot-blog
+  profiles:
+    active: dev
+  security:
+    user:
+      name: user
+      password: user
