@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko" th:lang="ko" xmls:th="" xmlns:xmls="http://www.thymeleaf.org">
+<html lang="ko" th:lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,6 +8,7 @@
     <title>일지 앱</title>
 </head>
 <body>
-    <p th:text="${message}"></p>
+<p th:text="${message}"></p>
+<a th:href="@{/diary}">일지</a>
 </body>
 </html>
