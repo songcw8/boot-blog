@@ -10,7 +10,7 @@ public class IndexController {
 
     @GetMapping
     public String index(Model model) {
-        model.addAttribute("message", "Hello World");
+        model.addAttribute("message", "일지를 작성해보세요!");
         return "index";
     }
 }

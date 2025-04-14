@@ -1,13 +1,86 @@
 <!doctype html>
-<html lang="ko" th:lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>일지 생성</title>
+    <style th:replace="~{fragments/font :: font}"></style>
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a {
+            text-decoration: none;
+            background-color: #f0f0f0;
+            padding: 8px 12px;
+            border-radius: 4px;
+            color: #333;
+        }
+        section form {
+            display: flex;
+            flex-direction: column;
+            max-width: 100%;
+            gap: 16px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #357ab8;
+        }
+    </style>
 </head>
 <body>
-<p th:text="${message}"></p>
+<header>
+    <h1>일지 작성</h1>
+    <a th:href="@{/diary}">목록 보기</a>
+</header>
+<section>
+    <form th:action="@{/diary/new}" th:object="${form}" method="post">
+        <div>
+            <label for="title">제목</label>
+            <input type="text" id="title" th:field="*{title}" placeholder="제목을 입력하세요">
+        </div>
+        <div>
+            <label for="content">내용</label>
+            <textarea id="content" th:field="*{content}" placeholder="내용을 입력하세요"></textarea>
+        </div>
+        <button type="submit">저장하기</button>
+    </form>
+</section>
 </body>
 </html>

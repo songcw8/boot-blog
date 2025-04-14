@@ -16,7 +16,7 @@ public class DiaryService {
         return diaryRepository.findAll();
     }
 
-    public void createDiary(Diary diary) {
-        diaryRepository.save(diary);
+    public Diary createDiary(Diary diary) {
+        return diaryRepository.save(diary);
     }
 }
